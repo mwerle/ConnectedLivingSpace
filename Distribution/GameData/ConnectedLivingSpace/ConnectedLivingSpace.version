@@ -1,7 +1,8 @@
 {
   "NAME": "Connected Living Space",
-  "URL": "https://raw.githubusercontent.com/mwerle/ConnectedLivingSpace/Distribution/GameData/ConnectedLivingSpace/ConnectedLivingSpace.version",
-  "CHANGE_LOG_URL":"https://raw.githubusercontent.com/mwerle/ConnectedLivingSpace/CHANGELOG.md",
+  "URL": "https://raw.githubusercontent.com/mwerle/ConnectedLivingSpace/master/Distribution/GameData/ConnectedLivingSpace/ConnectedLivingSpace.version",
+  "DOWNLOAD" : "https://github.com/mwerle/ConnectedLivingSpace/releases",
+  "CHANGE_LOG_URL":"https://raw.githubusercontent.com/mwerle/ConnectedLivingSpace/master/CHANGELOG.md",
   "GITHUB":
   {
     "USERNAME":"mwerle",
