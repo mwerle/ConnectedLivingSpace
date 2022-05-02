@@ -132,19 +132,14 @@ namespace ConnectedLivingSpace
       if (val && (!highlighted || force))
       {
         SetHighlighting();
-        highlighted = val;
-        part.highlightType = Part.HighlightType.AlwaysOn;
       }
-      else
+      else if (!val && (highlighted || force))
       {
-        if (!val && (highlighted || force))
-        {
-          highlighted = val;
-          part.SetHighlight(false, false);
-          part.SetHighlightDefault();
-          part.highlightType = Part.HighlightType.OnMouseOver;
-        }
+        part.SetHighlight(false, false);
+        part.SetHighlightDefault();
+        part.SetHighlightType(Part.HighlightType.OnMouseOver);
       }
+      highlighted = val;
     }
 
     // Actually set this part to be highlighted
@@ -199,6 +194,7 @@ namespace ConnectedLivingSpace
         part.SetHighlightColor(Color.red);
       }
       part.SetHighlight(true, false);
+      part.SetHighlightType(Part.HighlightType.AlwaysOn);
     }
 
     public bool Habitable

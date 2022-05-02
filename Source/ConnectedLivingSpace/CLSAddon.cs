@@ -373,11 +373,8 @@ namespace ConnectedLivingSpace
       UpdateShipConstruct();
 
       _editorPartCount = vesselConstruct.Parts.Count;
-      // First unhighlight the space that was selected.
-      if (-1 != WindowSelectedSpace && WindowSelectedSpace < _vessel.Spaces.Count)
-      {
-        _vessel.Spaces[WindowSelectedSpace].Highlight(true);
-      }
+
+      UpdateDisplayHighlighting(WindowSelectedSpace, true);
     }
 
     internal void DelayedUpdateShipConstruct()
@@ -899,7 +896,7 @@ namespace ConnectedLivingSpace
 
 
           // Only fiddle with the highlighting if the selected space has actually changed
-          UpdateDisplayHighlghting(newSelectedSpace);
+          UpdateDisplayHighlighting(newSelectedSpace);
 
           // Update the space that has been selected.
           WindowSelectedSpace = newSelectedSpace;
@@ -1022,10 +1019,10 @@ namespace ConnectedLivingSpace
       }
     }
 
-    private void UpdateDisplayHighlghting(int newSelectedSpace)
+    private void UpdateDisplayHighlighting(int newSelectedSpace, bool force=false)
     {
       // First unhighlight the space that was selected.
-      if (WindowSelectedSpace == newSelectedSpace) return;
+      if (!force && WindowSelectedSpace == newSelectedSpace) return;
       if (-1 != WindowSelectedSpace && WindowSelectedSpace < _vessel.Spaces.Count)
       {
         _vessel.Spaces[WindowSelectedSpace].Highlight(false);
