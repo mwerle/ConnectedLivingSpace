@@ -4,22 +4,18 @@
     <Import Project="user_settings.props" Condition="Exists('user_settings.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <KSPDIR Condition="'$(KSPDIR)' == ''">D:\Games\KSP\Kerbal Space Program\</KSPDIR>
     <CLSDIR>$(MSBuildThisFileDirectory)\..</CLSDIR>
     <DISTDIR>$(CLSDIR)\Distribution</DISTDIR>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT'">
-    <KSPDllDir>$(KSPDIR)/KSP_x64_Data/Managed/</KSPDllDir>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT'">
-    <KSPDllDir>$(KSPDIR)/KSP_Data/Managed/</KSPDllDir>
+    <KSPDIR Condition="'$(KSPDIR)' == ''">D:\Games\KSP\Kerbal Space Program\</KSPDIR>
+    <KSPDllDir Condition=" '$(OS)' == 'Windows_NT'">$(KSPDIR)/KSP_x64_Data/Managed/</KSPDllDir>
+    <KSPDllDir Condition=" '$(OS)' != 'Windows_NT'">$(KSPDIR)/KSP_Data/Managed/</KSPDllDir>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup>
     <Reference Include="$(KSPDllDir)/Assembly*.dll">
       <Private>False</Private>
     </Reference>
-    <Reference Include="$(KSPDllDir)/UnityEngine*.dll">
+    <Reference Include="$(KSPDllDir)/Unity*.dll">
       <Private>False</Private>
     </Reference>
   </ItemGroup>
